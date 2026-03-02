@@ -18,6 +18,11 @@ h1 {
   color: rgb(208, 223, 232);
 }
 
+h2 {
+  font-size: 6vw;
+  color: rgb(208, 223, 232);
+}
+
 p {
   font-size: 3vw;
   color: rgb(208, 223, 232);
@@ -76,17 +81,17 @@ p.gray {
 
 
 #modal {
-    padding: 20px;
-    border: 2px solid white;
-    border-radius: 10px;
+  justify-self: center;
+    padding: 10vw;
+    border: 10px solid white;
     margin: 50px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
-    background: white;
+    background: black;
     
     position: fixed;
     top: 100px;
-    left: 30px;
-    width: 400px;
+    height: 90vw;
+    width: 90vw;
     
     display: none;
   }
@@ -95,7 +100,19 @@ p.gray {
     float: left;
     user-select: none;
     cursor: pointer;
+    width: 5vw;
+    height: 5vw;
+    background: white;
   }
+
+#button {
+  justify-self: center;
+  cursor: pointer;
+  user-select: none;
+  width: 15vw;
+  height: 10vw;
+  background: white;
+}
 
 #back {
   float: left;
