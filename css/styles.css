@@ -9,8 +9,44 @@
 
 body {
   font-family: "Old-Newspaper-Type";
-  background-color: rgb(208, 223, 232);
+  background-color: rgb(0,0,0);
   margin: 0;
+}
+
+nav {
+  justify-self: center; 
+}
+
+.rooms {
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 90vw;
+  justify-self: center;
+  align-content: center;
+  justify-content: space-between;
+/*   background: red;  */
+}
+
+.rooms-text-container {
+  position: relative;
+  float: left;
+  width: 53%;
+  height: 90vw;
+  justify-self: center;
+  align-content: center;
+  background: red; 
+}
+
+.rooms-img-container {
+  position: absolute;
+  right: 0;
+  width: 45%;
+  height: 90vw;
+  align-content: center;
+  background: blue; 
 }
 
 h1 {
@@ -79,43 +115,100 @@ p.gray {
   cursor: pointer;
 }
 
+.items-text {
+  position: absolute;
+/*   background: red; */
+  height: 60vw;
+  width: 50%;
+  float: left;
+  align-self: center;
+}
+
+
+.items-img {
+    position: absolute;
+  background: red;
+  height: 30vw;
+  width: 35%;
+  right: 6vw;
+  align-self: center;
+}
+
 
 #modal {
   justify-self: center;
-    padding: 10vw;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+    padding: 6vw;
     border: 10px solid white;
-    margin: 50px;
+/*     margin: 50px; */
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
     background: black;
     
+  bottom: 5%;
+  top: 5%;
     position: fixed;
-    top: 100px;
-    height: 90vw;
+    height: 80vw;
     width: 90vw;
+  
+  overflow: scroll;
+
     
     display: none;
   }
 
 #close {
+  top: 6vw;
+  position: absolute;
     float: left;
     user-select: none;
     cursor: pointer;
     width: 5vw;
     height: 5vw;
     background: white;
+  z-index: 2;
   }
 
-#button {
+.button {
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   justify-self: center;
   cursor: pointer;
   user-select: none;
-  width: 15vw;
-  height: 10vw;
+  width: 20vw;
+  height: 7vw;
   background: white;
+  bottom: 6vw;
+  display: none;
+  box-shadow: 4px 4px 3px rgba(208, 223, 232, 0.50);;
+  text-decoration: none;
 }
 
-#back {
+.back {
+  position: absolute;
   float: left;
+  top: 6vw;
+  left: 6vw;
   user-select: none;
   cursor: pointer;
+    width: 8vw;
+    height: 5vw;
+    background: white;
+}
+
+.room-doors {
+  position: absolute;
+  top: 30vw;
+  left: 30vw;
+  user-select: none;
+  cursor: pointer;
+    width: 30vw;
+    height: 40vw;
+    background: white;  
+  
+  max-width: 200px;
+  max-height: 266px;
 }

@@ -18,11 +18,23 @@ async function setup () {
 function updateContent () {
   const hash = window.location.hash
   const id = hash.slice(1)
+  // const specObj = obj.find(i => i.id === this.id).object
   if (id) {
     const item = obj.find(i => i.id === id)
-    nn.get('#title').content(item.title)
-    nn.get('#desc').content(item.description)
+    nn.get('.rooms > .rooms-text-container > #title').content(item.title)
+    nn.get('.rooms > .rooms-text-container > #desc').content(item.description)
+    if (item.id === "top-left") {
+      nn.get('.button').css('display', 'flex')
+    }
+    else {
+      nn.get('.button').css('display', 'none')
+    }
   }
+  // if (specObj) {
+  //   const item = obj.find(i => i.id === id)
+  //   const roomObj = item.image
+  //   nn.get('#image').loadImage(roomObj)
+  // }
 }
 
 function setupClicks (ele) {
@@ -35,9 +47,15 @@ function showModal () {
     const type = obj.find(i => i.id === this.id).type
     
     if (type === "obj") {
-      nn.get('#modal > h2').content(title)
-      nn.get('#modal > p').content(desc)
+      nn.get('#modal > .items-text > h2').content(title)
+      nn.get('#modal > .items-text > p').content(desc)
       nn.get('#modal').css('display', 'block')
+      if (this.id === "key") {
+        nn.get('.button').css('display', 'flex')
+      }
+      else {
+        nn.get('.button').css('display', 'none')
+      }
     }
   }
 
@@ -45,9 +63,28 @@ function hideModal () {
     nn.get('#modal').css('display', 'none')
   }
 
-function back () {
-    window.location.href = window.history.back(1);
-  }
+// function back () {
+//     // const modalDisplay = nn.get('#modal').css('display')
+    
+//     // if (modalDisplay === 'block') {
+//     //     // If modal is open, just close it
+//     //     hideModal()
+//     // } else {
+//     //     // If no modal, go back in history
+//     //     window.location.href = window.history.back()
+//     // }
+  
+//     window.location.href = history.go(-1)
+//   }
 
-nn.get('#close').on('click', hideModal)
+const closeBtn = nn.get('#close')
+if (closeBtn) {
+    closeBtn.on('click', hideModal)
+}
+
+// const backBtn = nn.get('#back')
+// if (backBtn) {
+//   console.log()
+//     backBtn.on('click', back)
+// }
 nn.on('load', setup)
