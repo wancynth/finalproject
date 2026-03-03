@@ -54,8 +54,8 @@ function updateContent () {
 }
 
 function setupClicks (ele) {
-    ele.on('click', showModal)
     ele.on('click', discovered)
+    ele.on('click', showModal)
   }
 
 function showModal () {
@@ -84,7 +84,10 @@ function showModal () {
   }
 
 function showUpstairs () {
-  if (sessionStorage.getItem('undisc').length === 0) {
+  const stringArray = sessionStorage.getItem('undisc')
+  const parsedArray = JSON.parse(stringArray)
+  console.log('array', parsedArray)
+  if (parsedArray.length === 5) {
     nn.get('.button').css('display', 'flex')
   }
   else {
