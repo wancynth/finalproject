@@ -125,6 +125,7 @@ p.gray {
   max-height: 600px;
   float: left;
   align-self: center;
+  overflow: scroll;
 }
 
 
@@ -158,8 +159,6 @@ p.gray {
     width: 90vw;
     max-width: 1000px;
     max-height: 650px;
-  
-  overflow: scroll;
 
     
     display: none;
