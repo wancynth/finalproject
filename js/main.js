@@ -17,19 +17,18 @@ async function setup () {
   
   console.log(obj)
   updateContent()
-  sessionStorage.setItem('undisc', obj.filter(i => i.type === "obj"))
+  const thing = obj.filter(i => i.type === "obj").map(i => i.id)
+  const thingString = JSON.stringify(thing)
+  sessionStorage.setItem('undisc', thingString)
 }
 
-//problem area
 function discovered() {
-  const id = obj.find(i => i.id === this.id).id
-  for (let i = 0; i < sessionStorage.getItem('undisc').length; i++) {
-    const index = obj.indexOf(id);
-    if (id === sessionStorage.getItem('undisc').id) {
-      sessionStorage.setItem('undisc', sessionStorage.getItem('undisc').splice(index, 1))
-    }
-  }
-  console.log(sessionStorage.getItem('undisc'))
+  const stringArray = sessionStorage.getItem('undisc')
+  const parsedArray = JSON.parse(stringArray)
+  const index = parsedArray.indexOf(this.id)
+  parsedArray.splice(index, 1)
+  const newStringArray = JSON.stringify(parsedArray)
+  sessionStorage.setItem('undisc', newStringArray)
 }
 
 
