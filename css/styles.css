@@ -37,7 +37,7 @@ nav {
   height: 90vw;
   justify-self: center;
   align-content: center;
-  background: red; 
+/*   background: red;  */
 }
 
 .rooms-img-container {
@@ -46,25 +46,26 @@ nav {
   width: 45%;
   height: 90vw;
   align-content: center;
-  background: blue; 
+/*   background: blue;  */
 }
 
 h1 {
-  font-size: 10vw;
+  font-size: min(10vw, 48pt);
   color: rgb(208, 223, 232);
 }
 
 h2 {
-  font-size: 6vw;
+  font-size: min(6vw, 36pt);
   color: rgb(208, 223, 232);
 }
 
 p {
-  font-size: 3vw;
+  font-size: min(3vw, 18pt);
   color: rgb(208, 223, 232);
 }
 
 p.gray {
+  font-size: min(3vw, 18pt);
   color: rgb(115, 115, 115);
   text-align: center;
 }
@@ -108,7 +109,8 @@ p.gray {
 .items {
   position: relative;
   justify-self: center;
-  background: black;
+  align-items: center;
+/*   background: black; */
   height: 35vw;
   width: 35vw;
   user-select: none;
@@ -120,6 +122,7 @@ p.gray {
 /*   background: red; */
   height: 60vw;
   width: 50%;
+  max-height: 600px;
   float: left;
   align-self: center;
 }
@@ -127,10 +130,12 @@ p.gray {
 
 .items-img {
     position: absolute;
-  background: red;
+/*   background: red; */
   height: 30vw;
-  width: 35%;
-  right: 6vw;
+  width: 30vw;
+  max-height: 300px;
+  max-width: 300px;
+  right: min(6vw, 60px);
   align-self: center;
 }
 
@@ -140,7 +145,7 @@ p.gray {
   align-self: center;
   align-content: center;
   justify-content: center;
-    padding: 6vw;
+    padding: min(6vw, 60px);
     border: 10px solid white;
 /*     margin: 50px; */
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
@@ -151,6 +156,8 @@ p.gray {
     position: fixed;
     height: 80vw;
     width: 90vw;
+    max-width: 1000px;
+    max-height: 650px;
   
   overflow: scroll;
 
@@ -159,13 +166,15 @@ p.gray {
   }
 
 #close {
-  top: 6vw;
+  top: min(5vw, 40px);
+  left: min(5vw, 40px);
   position: absolute;
-    float: left;
     user-select: none;
     cursor: pointer;
     width: 5vw;
     height: 5vw;
+    max-width: 60px;
+    max-height: 30px;
     background: white;
   z-index: 2;
   }
@@ -180,8 +189,10 @@ p.gray {
   user-select: none;
   width: 20vw;
   height: 7vw;
+  max-width: 200px;
+  max-height: 70px;
   background: white;
-  bottom: 6vw;
+  bottom: min(6vw, 60px);
   display: none;
   box-shadow: 4px 4px 3px rgba(208, 223, 232, 0.50);;
   text-decoration: none;
@@ -189,20 +200,25 @@ p.gray {
 
 .back {
   position: absolute;
-  float: left;
-  top: 6vw;
-  left: 6vw;
+  top: min(6vw, 50px);
+  left: min(6vw, 50px);
+  max-width: 60px;
+  max-height: 30px;
   user-select: none;
   cursor: pointer;
     width: 8vw;
     height: 5vw;
     background: white;
+  z-index: 3;
 }
 
 .room-doors {
+  display: flex;
   position: absolute;
-  top: 30vw;
-  left: 30vw;
+/*   top: 30vw;
+  left: 30vw; */
+  align-self: center;
+  justify-self: center;
   user-select: none;
   cursor: pointer;
     width: 30vw;

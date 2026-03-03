@@ -7,6 +7,7 @@ async function setup () {
   obj = nn.parseData(obj)
   
   nn.getAll('.items').forEach(setupClicks)
+  nn.getAll('.rooms-img-container > img').forEach(setupClicks)
   
    console.log('Parsed data:', obj)
   
@@ -21,8 +22,13 @@ function updateContent () {
   // const specObj = obj.find(i => i.id === this.id).object
   if (id) {
     const item = obj.find(i => i.id === id)
+    const specImg = item.image
     nn.get('.rooms > .rooms-text-container > #title').content(item.title)
     nn.get('.rooms > .rooms-text-container > #desc').content(item.description)
+    let image = nn.get('.rooms > .rooms-img-container > img')
+    image.src = `css/images/${specImg}.png`
+    image.id = specImg
+    console.log(image.id)
     if (item.id === "top-left") {
       nn.get('.button').css('display', 'flex')
     }
@@ -30,11 +36,6 @@ function updateContent () {
       nn.get('.button').css('display', 'none')
     }
   }
-  // if (specObj) {
-  //   const item = obj.find(i => i.id === id)
-  //   const roomObj = item.image
-  //   nn.get('#image').loadImage(roomObj)
-  // }
 }
 
 function setupClicks (ele) {
@@ -42,13 +43,17 @@ function setupClicks (ele) {
   }
 
 function showModal () {
+    const id = obj.find(i => i.id === this.id).id
     const title = obj.find(i => i.id === this.id).title
     const desc = obj.find(i => i.id === this.id).description
     const type = obj.find(i => i.id === this.id).type
     
+    
     if (type === "obj") {
       nn.get('#modal > .items-text > h2').content(title)
       nn.get('#modal > .items-text > p').content(desc)
+      let image = nn.get('#modal > .items-img > img')
+      image.src = `css/images/${id}.png`
       nn.get('#modal').css('display', 'block')
       if (this.id === "key") {
         nn.get('.button').css('display', 'flex')
