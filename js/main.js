@@ -87,7 +87,7 @@ function showUpstairs () {
   const stringArray = sessionStorage.getItem('undisc')
   const parsedArray = JSON.parse(stringArray)
   console.log('array', parsedArray)
-  if (parsedArray.length === 5) {
+  if (parsedArray.length === 0) {
     nn.get('.button').css('display', 'flex')
   }
   else {
