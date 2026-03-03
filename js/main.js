@@ -2,6 +2,10 @@
 let obj
 
 async function setup () {
+  if (sessionStorage.getItem('undisc')) {
+    console.log("Already initialized")
+  }
+  
   const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTCohgH12G54bFzgTMbR_YTdj4knfuKNKFL2vur75wETlkFXZ7iimzkBbIIUTK9lihjmOTK07SAMX8N/pub?output=csv"
   obj = await nn.loadData(url)
   obj = nn.parseData(obj)
@@ -13,13 +17,25 @@ async function setup () {
   
   console.log(obj)
   updateContent()
+  sessionStorage.setItem('undisc', obj.filter(i => i.type === "obj"))
+}
+
+//problem area
+function discovered() {
+  const id = obj.find(i => i.id === this.id).id
+  for (let i = 0; i < sessionStorage.getItem('undisc').length; i++) {
+    const index = obj.indexOf(id);
+    if (id === sessionStorage.getItem('undisc').id) {
+      sessionStorage.setItem('undisc', sessionStorage.getItem('undisc').splice(index, 1))
+    }
+  }
+  console.log(sessionStorage.getItem('undisc'))
 }
 
 
 function updateContent () {
   const hash = window.location.hash
   const id = hash.slice(1)
-  // const specObj = obj.find(i => i.id === this.id).object
   if (id) {
     const item = obj.find(i => i.id === id)
     const specImg = item.image
@@ -29,17 +45,18 @@ function updateContent () {
     image.src = `css/images/${specImg}.png`
     image.id = specImg
     console.log(image.id)
-    if (item.id === "top-left") {
-      nn.get('.button').css('display', 'flex')
-    }
-    else {
-      nn.get('.button').css('display', 'none')
-    }
+    // if (item.id === "top-left") {
+    //   nn.get('.button').css('display', 'flex')
+    // }
+    // else {
+    //   nn.get('.button').css('display', 'none')
+    // }
   }
 }
 
 function setupClicks (ele) {
     ele.on('click', showModal)
+    ele.on('click', discovered)
   }
 
 function showModal () {
@@ -58,11 +75,25 @@ function showModal () {
       if (this.id === "key") {
         nn.get('.button').css('display', 'flex')
       }
+      else if (this.id === "stairway") {
+        showUpstairs()
+      }
       else {
         nn.get('.button').css('display', 'none')
       }
     }
   }
+
+function showUpstairs () {
+  if (sessionStorage.getItem('undisc').length === 0) {
+    nn.get('.button').css('display', 'flex')
+  }
+  else {
+    nn.get('.button').css('display', 'none')
+  }
+}
+
+
 
 function hideModal () {
     nn.get('#modal').css('display', 'none')
