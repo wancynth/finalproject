@@ -175,7 +175,7 @@ p.gray {
     height: 5vw;
     max-width: 60px;
     max-height: 30px;
-    background: white;
+/*     background: white; */
   z-index: 2;
   }
 
@@ -208,7 +208,7 @@ p.gray {
   cursor: pointer;
     width: 8vw;
     height: 5vw;
-    background: white;
+/*     background: white; */
   z-index: 3;
 }
 
