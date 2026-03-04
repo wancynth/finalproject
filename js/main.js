@@ -116,7 +116,7 @@ function showUpstairs () {
 function hideModal () {
     nn.get('#modal').css('display', 'none')
   if (nn.get('.back')){
-        nn.get('.back').css('display', 'none')
+        nn.get('.back').css('display', 'block')
       }
   }
 
