@@ -12,6 +12,8 @@ async function setup () {
   
    console.log('Parsed data:', obj)
   
+  restart()
+  
   console.log(obj)
   updateContent()
   if (sessionStorage.getItem('undisc')) {
@@ -66,6 +68,7 @@ function updateContent () {
 function setupClicks (ele) {
     ele.on('click', discovered)
     ele.on('click', showModal)
+    ele.on('click', restart)
   }
 
 function showModal () {
@@ -147,5 +150,16 @@ if (closeBtn) {
 //     backBtn.on('click', back)
 // }
 nn.on('load', setup)
+
+
+function restart () {
+  if (nn.get('#replay')) {
+    nn.get('#replay').on('click', restartGame)
+  }
+}
+
+function restartGame() {
+   sessionStorage.removeItem('undisc')
+}
 
 
