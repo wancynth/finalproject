@@ -239,6 +239,7 @@ p.gray {
   max-height: 199.5px;
   transform: translateY(50px);
   margin: 20px;
+  z-index: 10;
 }
 
 .lower {
