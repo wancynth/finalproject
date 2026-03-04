@@ -211,13 +211,12 @@ p.gray {
   z-index: 3;
 }
 
+.castle {
+    display: flex;
+    justify-content: center;
+  }
+
 .room-doors {
-  display: flex;
-  position: absolute;
-/*   top: 30vw;
-  left: 30vw; */
-  align-self: center;
-  justify-self: center;
   user-select: none;
   cursor: pointer;
     width: 30vw;
@@ -226,4 +225,12 @@ p.gray {
   
   max-width: 200px;
   max-height: 266px;
+}
+
+.lower {
+  transform: scale(1.15) translateY(60px);
+}
+
+.higher {
+  transform: translateY(-30px);
 }
