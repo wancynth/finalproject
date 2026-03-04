@@ -79,10 +79,15 @@ function showModal () {
       let image = nn.get('#modal > .items-img > img')
       image.src = `css/images/${id}.png`
       nn.get('#modal').css('display', 'block')
-      nn.get('.back').css('display', 'none')
+      if (nn.get('.back')){
+        nn.get('.back').css('display', 'none')
+      }
+      console.log(this.id)
       if (this.id === "key") {
         nn.get('.button').css('display', 'flex')
+        if (nn.get('.back')){
         nn.get('.back').css('display', 'none')
+      }
       }
       else if (this.id === "stairway") {
         showUpstairs()
@@ -102,7 +107,7 @@ function showUpstairs () {
   }
   else {
     nn.get('.button').css('display', 'none')
-    nn.get('.objective').content("Perhaps finding all the objects first will help you unlock this area...")
+    nn.get('.objective').content(`Perhaps finding all the objects first will help you unlock this area... ${itemsLeft}/7 items left`)
   }
 }
 
@@ -110,7 +115,9 @@ function showUpstairs () {
 
 function hideModal () {
     nn.get('#modal').css('display', 'none')
-  nn.get('.back').css('display', 'block')
+  if (nn.get('.back')){
+        nn.get('.back').css('display', 'none')
+      }
   }
 
 // function back () {
