@@ -70,6 +70,13 @@ p.gray {
   text-align: center;
 }
 
+.objective {
+  text-align: center;
+  bottom: min(6vw, 20px);
+  font-size: min(1.5vw, 12pt);
+  position: absolute;
+}
+
 .title-container {
   position: relative;
   height: 80vw;

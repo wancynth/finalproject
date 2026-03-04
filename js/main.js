@@ -1,5 +1,6 @@
 /* global nn */
 let obj
+let itemsLeft = 0
 
 async function setup () {
   if (sessionStorage.getItem('undisc')) {
@@ -27,8 +28,15 @@ function discovered() {
   const parsedArray = JSON.parse(stringArray)
   const index = parsedArray.indexOf(this.id)
   parsedArray.splice(index, 1)
-  const newStringArray = JSON.stringify(parsedArray)
-  sessionStorage.setItem('undisc', newStringArray)
+  if (index >= 0) {
+    const newStringArray = JSON.stringify(parsedArray)
+    sessionStorage.setItem('undisc', newStringArray)
+    console.log('parsedarray', parsedArray)
+    itemsLeft = parsedArray.length
+    console.log("items left:", itemsLeft)
+  }
+  console.log('parsedarray', parsedArray)
+  console.log("items left:", itemsLeft)
 }
 
 
@@ -94,6 +102,7 @@ function showUpstairs () {
   }
   else {
     nn.get('.button').css('display', 'none')
+    nn.get('.objective').content("Perhaps finding all the objects first will help you unlock this area...")
   }
 }
 
