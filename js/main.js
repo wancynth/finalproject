@@ -3,10 +3,6 @@ let obj
 let itemsLeft = 0
 
 async function setup () {
-  if (sessionStorage.getItem('undisc')) {
-    console.log("Already initialized")
-  }
-  
   const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTCohgH12G54bFzgTMbR_YTdj4knfuKNKFL2vur75wETlkFXZ7iimzkBbIIUTK9lihjmOTK07SAMX8N/pub?output=csv"
   obj = await nn.loadData(url)
   obj = nn.parseData(obj)
@@ -18,24 +14,30 @@ async function setup () {
   
   console.log(obj)
   updateContent()
+  if (sessionStorage.getItem('undisc')) {
+    return
+  }
   const thing = obj.filter(i => i.type === "obj").map(i => i.id)
   const thingString = JSON.stringify(thing)
   sessionStorage.setItem('undisc', thingString)
+  console.log(sessionStorage.getItem('undisc'))
 }
 
 function discovered() {
   const stringArray = sessionStorage.getItem('undisc')
   const parsedArray = JSON.parse(stringArray)
   const index = parsedArray.indexOf(this.id)
-  parsedArray.splice(index, 1)
+  console.log("index", index)
   if (index >= 0) {
+    parsedArray.splice(index, 1)
     const newStringArray = JSON.stringify(parsedArray)
     sessionStorage.setItem('undisc', newStringArray)
     console.log('parsedarray', parsedArray)
     itemsLeft = parsedArray.length
     console.log("items left:", itemsLeft)
+    console.log('undisc', sessionStorage.getItem('undisc'))
   }
-  console.log('parsedarray', parsedArray)
+
   console.log("items left:", itemsLeft)
 }
 
@@ -145,3 +147,5 @@ if (closeBtn) {
 //     backBtn.on('click', back)
 // }
 nn.on('load', setup)
+
+
