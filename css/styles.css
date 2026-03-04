@@ -198,7 +198,7 @@ p.gray {
 }
 
 .back {
-  position: absolute;
+  position: fixed;
   top: min(6vw, 50px);
   left: min(6vw, 50px);
   max-width: 60px;
@@ -212,25 +212,34 @@ p.gray {
 }
 
 .castle {
+    position: relative;
     display: flex;
+  justify-self: center;
     justify-content: center;
+    align-items: center;
+/*   background: red; */
   }
 
 .room-doors {
   user-select: none;
   cursor: pointer;
-    width: 30vw;
-    height: 40vw;
+    width: 20vw;
+    height: 26.6vw;
     background: white;  
   
-  max-width: 200px;
-  max-height: 266px;
+  max-width: 150px;
+  max-height: 199.5px;
+  transform: translateY(50px);
+  margin: 40px;
 }
 
 .lower {
-  transform: scale(1.15) translateY(60px);
+  transform: scale(1.2) translateY(min(25vw, 150px));
+  max-width: 160px;
+  max-height: 212.8px;
 }
 
 .higher {
-  transform: translateY(-30px);
+  transform: translateY(-20px);
+  background: rgba(255,255,255, 0.1)
 }

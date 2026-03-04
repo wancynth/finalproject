@@ -10,22 +10,28 @@
       body {
         overflow: scroll;
         margin: 6vw;
+        min-width: 1100px;
       }
     </style>
     <a class="back" href="index.html">
       <img src="css/images/back.png" alt="description of image" style="max-width: 60px;
   max-height: 30px;
     width: 8vw;
-    height: 5vw;">
+    height: 5vw;
+    ">
     </a>
     
-    <nav>
-      <a class="room-doors" href="room.html#top-left" style="transform: scale(0.85) translate(min(-20vw, -250px), min(22vw, 260px)"></a>
-      <a class="room-doors" href="room.html#bottom-left" style="transform: translate(-40vw, 40vw)"></a>
-      <a class="room-doors" href="room.html#top-right" style="transform: scale(0.85) translate(min(20vw, 250px), min(22vw, 260px))"></a>
-      <a class="room-doors" href="room.html#bottom-right" style="transform: translate(40vw, 40vw)"></a>
-      <a class="room-doors" href="room.html#throne" style="transform: scale(0.50) translateY(20vw)"></a>
+    <nav class="castle">
+      <a class="room-doors lower" href="room.html#bottom-left"></a>
+      <a class="room-doors" href="room.html#top-left"></a>
+      <a class="room-doors higher" href="room.html#throne"></a>
+      <a class="room-doors" href="room.html#top-right"></a>
+      <a class="room-doors lower" href="room.html#bottom-right"></a>
     </nav>
+    
+    <p style="text-align: center;
+              bottom: 0;
+              ">Enter a room.</p>
     
     
     <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>

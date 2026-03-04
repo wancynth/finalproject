@@ -71,8 +71,10 @@ function showModal () {
       let image = nn.get('#modal > .items-img > img')
       image.src = `css/images/${id}.png`
       nn.get('#modal').css('display', 'block')
+      nn.get('.back').css('display', 'none')
       if (this.id === "key") {
         nn.get('.button').css('display', 'flex')
+        nn.get('.back').css('display', 'none')
       }
       else if (this.id === "stairway") {
         showUpstairs()
@@ -99,6 +101,7 @@ function showUpstairs () {
 
 function hideModal () {
     nn.get('#modal').css('display', 'none')
+  nn.get('.back').css('display', 'block')
   }
 
 // function back () {
