@@ -12,6 +12,7 @@
         margin: 6vw;
         min-width: 1100px;
       }
+      
     </style>
     <a class="back" href="index.html">
       <img src="css/images/back.png" alt="description of image" style="max-width: 60px;
@@ -22,16 +23,29 @@
     </a>
     
     <nav class="castle">
-      <a class="room-doors lower" href="room.html#bottom-left"></a>
-      <a class="room-doors" href="room.html#top-left"></a>
-      <a class="room-doors higher" href="room.html#throne"></a>
-      <a class="room-doors" href="room.html#top-right"></a>
-      <a class="room-doors lower" href="room.html#bottom-right"></a>
+      <a class="room-doors lower" href="room.html#bottom-left">
+        <img src="css/images/door.png" class="room-doors lower" alt="description of image">
+      </a>
+      <a class="room-doors" href="room.html#top-left">
+        <img src="css/images/door.png" class="room-doors" alt="description of image">
+      </a>
+      <a class="room-doors higher" href="room.html#throne">
+        <img src="css/images/throneroom.png" class="room-doors higher" alt="description of image">
+      </a>
+      <a class="room-doors" href="room.html#top-right">
+        <img src="css/images/door2.png" class="room-doors" alt="description of image">
+      </a>
+      <a class="room-doors lower" href="room.html#bottom-right">
+        <img src="css/images/door2.png" class="room-doors lower" alt="description of image">
+      </a>
     </nav>
     
-    <p style="text-align: center;
+    <div style="position: relative; height: 40vw; max-height: 300px; text-align: center;">
+          <p style="position: absolute; left: 47%;
               bottom: 0;
               ">Enter a room.</p>
+    </div>
+
     
     
     <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
